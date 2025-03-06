@@ -19,11 +19,11 @@ public class StreamScenarioPart1 {
 		//Find second highest salary
 		List<Integer> salaries = List.of(3000,9000, 5000, 7000, 9000, 5000);
 		Integer secondHighestInteger = salaries.stream()
-												.distinct()  // [3000, 9000, 5000, 7000].
-												.sorted(Comparator.reverseOrder()) //[9000, 7000, 5000, 3000].
-												.skip(1) // [7000, 5000, 3000].
-												.findFirst()
-												.get();
+							.distinct()  // [3000, 9000, 5000, 7000].
+							.sorted(Comparator.reverseOrder()) //[9000, 7000, 5000, 3000].
+							.skip(1) // [7000, 5000, 3000].
+							.findFirst()
+							.get();
 		System.out.println(secondHighestInteger);
 		
 		
