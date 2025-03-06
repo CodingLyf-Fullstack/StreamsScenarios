@@ -2,6 +2,7 @@ package com.example.demo.streams;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StreamScenarioPart1 {
@@ -24,5 +25,24 @@ public class StreamScenarioPart1 {
 												.findFirst()
 												.get();
 		System.out.println(secondHighestInteger);
+		
+		
+
+		numbers = List.of(2, 4, 6, 7, 10); //List contain one odd number
+		
+		//List contains only even numbers
+		boolean allEven = numbers.stream().allMatch(n -> n % 2 == 0);
+
+		//List does not contain any odd numbers
+		boolean noOddNumbers = numbers.stream().noneMatch(n -> n % 2 != 0);
+
+		//List contains at least one even number
+		boolean hasEven = numbers.stream().anyMatch(n -> n % 2 == 0);
+
+		System.out.println("allEven: "+allEven+" noOddNumbers: "+noOddNumbers+" hasEven: "+hasEven);
+		
+		
+
+
 	}
 }
