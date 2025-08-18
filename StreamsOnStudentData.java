@@ -25,20 +25,20 @@ class Student {
 
 public class AdvancedStreams {
     public static void main(String[] args) {
-    	
+
         List<Student> students = Arrays.asList(
-            new Student("John", "Smith", "Miami", 8.38, 19, "Civil"),
-            new Student("Mike", "Miles", "New York", 8.4, 21, "IT"),
-            new Student("Michael", "Peterson", "New York", 7.5, 20, "Civil"),
-            new Student("James", "Robertson", "Miami", 9.1, 20, "IT"),
-            new Student("John", "Miller", "Miami", 7.83, 20, "Civil")
+            new Student("Rahul", "Sharma", "Hyderabad", 8.38, 19, "Civil"),
+            new Student("Amit", "Verma", "Delhi", 8.4, 21, "IT"),
+            new Student("Suresh", "Reddy", "Hyderabad", 7.5, 20, "Civil"),
+            new Student("Kiran", "Patel", "Mumbai", 9.1, 20, "IT"),
+            new Student("Arjun", "Naidu", "Bengaluru", 7.83, 20, "Civil")
         );
 
-        // 1. Find students from Miami with a grade greater than 8.0
-        List<Student> miamiHighGrades = students.stream()
-                .filter(s -> s.city.equals("Miami") && s.grade > 8.0)
+        // 1. Find students from Hyderabad with a grade greater than 8.0
+        List<Student> HyderabadHighGrades = students.stream()
+                .filter(s -> s.city.equals("Hyderabad") && s.grade > 8.0)
                 .collect(Collectors.toList());
-        System.out.println("1. Miami students with grade > 8.0: " + miamiHighGrades);
+        System.out.println("1. Hyderabad students with grade > 8.0: " + HyderabadHighGrades);
 
         // 2. Find the student with the highest grade
         Optional<Student> topStudent = students.stream()
