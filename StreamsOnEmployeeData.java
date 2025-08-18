@@ -18,12 +18,12 @@ record EmployeeDto(
 
 public class StreamsOnEmployeeData {
 	public static void main(String[] args) {
-		EmployeeDto employee1 = new EmployeeDto("SRK","ECE",31,"Male");
-        EmployeeDto employee2 = new EmployeeDto("Salman","CS",44,"Male");
-        EmployeeDto employee3 = new EmployeeDto("Katrina","ECE",21,"Female");
-        EmployeeDto employee4 = new EmployeeDto("Kareena","CS",34,"Female");
-        EmployeeDto employee5 = new EmployeeDto("Hrithik","EEE",30,"Male");
-        EmployeeDto employee6 = new EmployeeDto("Aish","EEE",25,"Female");
+EmployeeDto employee1 = new EmployeeDto("SRK","ECE",31,"Male");
+EmployeeDto employee2 = new EmployeeDto("Salman","CS",44,"Male");
+EmployeeDto employee3 = new EmployeeDto("Katrina","ECE",21,"Female");
+EmployeeDto employee4 = new EmployeeDto("Kareena","CS",34,"Female");
+EmployeeDto employee5 = new EmployeeDto("Hrithik","EEE",30,"Male");
+EmployeeDto employee6 = new EmployeeDto("Aish","EEE",25,"Female");
 
         List<EmployeeDto> list = new ArrayList<>();
         list.add(employee1);
@@ -42,18 +42,18 @@ public class StreamsOnEmployeeData {
 				.toList();
 		System.out.println("CS Sorted Employees: " + csSortedEmployeeDtos);
 
-		// 2.Group EmployeeDtos by department and count how many EmployeeDtos are in each department.
+		// 2. Group Employees by department and count how many Employees are in each department.
 		Map<String, Long> departmentGroup = list.stream()
 				.collect(Collectors.groupingBy(EmployeeDto::department, Collectors.counting()));
 		System.out.println("Department wise count: " + departmentGroup);
 		
-		// 3.Find the youngest female EmployeeDto.
+		// 3.Find the youngest female Employee.
 		String youngestFemaleName = list.stream()
 		 .filter(e -> e.gender() == "Female")
 		 .min(Comparator.comparingInt(EmployeeDto::age)).get().name();
 		System.out.println("Youngest Female Name: "+youngestFemaleName);
 
-		// 4. Create a map of department → list of EmployeeDto names.
+		// 4. Create a map of department -> list of Employee names.
 		Map<String, List<String>> departmentMap = list.stream()
 				.collect(Collectors.groupingBy(EmployeeDto::department, 
 						 Collectors.mapping(EmployeeDto::name, Collectors.toList())));
@@ -72,7 +72,7 @@ public class StreamsOnEmployeeData {
 				.toList();
 		System.out.println("Unique Departments: " + uniqueDepartments);
 
-        // 7. Partition EmployeeDtos into male and female groups, then list their names.
+        // 7. Partition Employees into male and female groups, then list their names.
 		Map<String, List<String>> partitionedList =   list.stream().collect(Collectors.groupingBy(e -> {
 			 if(e.gender() == "Female") {
 				 return "Female";
@@ -99,8 +99,7 @@ public class StreamsOnEmployeeData {
 		.stream().collect(Collectors.groupingBy(EmployeeDto::gender, Collectors.averagingDouble(EmployeeDto::age)));
 		System.out.println("Map of Gender: " + mapOfGender);
 		
-		//10. For each department, find the youngest employee,
-		// but instead of returning the employee object, return only their name in uppercase.
+		//10. For each department, find the youngest employee, but instead of returning the employee object, return only their name in uppercase.
 		  Map<String, String> youngestByDept = list.stream()
 		            .collect(Collectors.groupingBy(
 		                EmployeeDto::department,
